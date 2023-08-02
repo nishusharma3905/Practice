@@ -1,4 +1,4 @@
-# Solution 02 Roman to Integer
+# Solution 03 Roman to Integer
 def roman_to_int(s):
     roman_numerals = {
         'I': 1,
@@ -16,8 +16,6 @@ def roman_to_int(s):
     for char in s:
         current_value = roman_numerals[char]
 
-        # Check if the current value is greater than the previous value
-        # If so, subtract the previous value twice to account for the addition in the previous iteration
         if current_value > prev_value:
             total += current_value - 2 * prev_value
         else:
@@ -27,7 +25,7 @@ def roman_to_int(s):
 
     return total
 
-s = "LVIII"
+s = "III"
 result = roman_to_int(s)
 print(result)
 
