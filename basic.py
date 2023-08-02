@@ -1,6 +1,6 @@
 # Solution 02 Roman to Integer
-def romanToInt(s):
-    roman_to_int = {
+def roman_to_int(s):
+    roman_numerals = {
         'I': 1,
         'V': 5,
         'X': 10,
@@ -10,17 +10,28 @@ def romanToInt(s):
         'M': 1000
     }
 
-    result = 0
+    total = 0
     prev_value = 0
 
-    for c in s[::-1]:
-        value = roman_to_int[c]
-        if value < prev_value:
-            result -= value
-        else:
-            result += value
-        prev_value = value
+    for char in s:
+        current_value = roman_numerals[char]
 
-    return result
-s = "III"
-print(romanToInt(s))  
+        # Check if the current value is greater than the previous value
+        # If so, subtract the previous value twice to account for the addition in the previous iteration
+        if current_value > prev_value:
+            total += current_value - 2 * prev_value
+        else:
+            total += current_value
+
+        prev_value = current_value
+
+    return total
+
+s = "LVIII"
+result = roman_to_int(s)
+print(result)
+
+
+
+
+   
