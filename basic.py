@@ -1,6 +1,6 @@
-# Solution 03 Roman to Integer
-def roman_to_int(s):
-    roman_numerals = {
+# Solution No. 03 Roman to Integer
+def roman_to_integer(s):
+    roman_dict = {
         'I': 1,
         'V': 5,
         'X': 10,
@@ -10,26 +10,24 @@ def roman_to_int(s):
         'M': 1000
     }
 
-    total = 0
+    result = 0
     prev_value = 0
 
-    for char in s:
-        current_value = roman_numerals[char]
+    for char in reversed(s):
+        value = roman_dict[char]
 
-        if current_value > prev_value:
-            total += current_value - 2 * prev_value
+        if value >= prev_value:
+            result += value
         else:
-            total += current_value
+            result -= value
 
-        prev_value = current_value
+        prev_value = value
 
-    return total
-
-s = "III"
-result = roman_to_int(s)
-print(result)
+    return result
 
 
+s = "LVIII"
+print(roman_to_integer(s))  
 
 
-   
+    
