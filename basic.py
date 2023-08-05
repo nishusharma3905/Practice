@@ -1,33 +1,21 @@
-# Solution No. 03 Roman to Integer
-def roman_to_integer(s):
-    roman_dict = {
-        'I': 1,
-        'V': 5,
-        'X': 10,
-        'L': 50,
-        'C': 100,
-        'D': 500,
-        'M': 1000
-    }
+# add two binary Numbers
+def addBinary(a, b):
+     
+    a_int = int(a, 2)
+    b_int = int(b, 2)
 
-    result = 0
-    prev_value = 0
+    
+    sum_int = a_int + b_int
 
-    for char in reversed(s):
-        value = roman_dict[char]
+    
+    sum_binary = bin(sum_int)[2:]  
 
-        if value >= prev_value:
-            result += value
-        else:
-            result -= value
-
-        prev_value = value
-
-    return result
+    return sum_binary
 
 
-s = "LVIII"
-print(roman_to_integer(s))  
-
+a = "1010"
+b = "1011"
+result = addBinary(a, b)
+print(result)  
 
     
