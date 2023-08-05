@@ -17,5 +17,5 @@ a = "1010"
 b = "1011"
 result = addBinary(a, b)
 print(result)  
-
+print("This is the final answer")
     
